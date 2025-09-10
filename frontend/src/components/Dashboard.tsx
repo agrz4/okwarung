@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 
+// Declare Chart.js as global
+declare global {
+  interface Window {
+    Chart: any;
+  }
+}
+
+const Chart = window.Chart;
+
 interface DashboardProps {
     token: string | null;
     apiUrl: string;

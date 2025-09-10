@@ -17,7 +17,7 @@ const authMiddleware = (req, res, next) => {
         return res.status(401).json({ message: 'Akses ditolak. Token tidak tersedia.' });
     }
     try {
-        const decoded = JsonWebTokenError.verify(token, SECRET_KEY);
+        const decoded = jwt.verify(token, SECRET_KEY);
         req.user = decoded;
         next();
     } catch (error) {
@@ -86,7 +86,7 @@ app.delete('/api/products/:id', authMiddleware, async (req, res) => {
 });
 
 //  Transactions API endpoints
-app.get('/api/trasnactions', authMiddleware, async (req, res) => {
+app.get('/api/transactions', authMiddleware, async (req, res) => {
      try {
         const query = `
             SELECT t.*, p.name AS productName
@@ -134,7 +134,7 @@ app.put('/api/transactions/:id', authMiddleware, async (req, res) => {
     }
 });
 
-app.delete('transactions/:id', authMiddleware, async (req, res) => {
+app.delete('/api/transactions/:id', authMiddleware, async (req, res) => {
     const { id } = req.params;
     try {
         const [result] = await db.query('DELETE FROM transactions WHERE id = ?', [id]);

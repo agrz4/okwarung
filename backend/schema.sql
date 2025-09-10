@@ -25,7 +25,9 @@ CREATE TABLE transactions (
 -- Seed initial data for products
 INSERT INTO products (name, price) VALUES
 ('Gas LPG 3kg', 20000),
-('Gas LPG 12kg', 100000),
+('Galon Aqua', 20000),
+('Galon Le Minerale', 22000),
+('Galon Pristine', 24000),
 ('Galon Air Isi Ulang', 5000);
 
 -- Note: The `transactions` table will be populated via the API.
