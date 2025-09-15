@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import ProductModal from './ModalProduct'
 
 interface Product {
@@ -34,7 +35,7 @@ const Products: React.FC<ProductsProps> = ({ token, apiUrl, products, fetchProdu
                     headers: { 'Authorization': `Bearer ${token}` },
                 });
                 fetchProducts();
-            } catch (error) {
+            } catch {
                 alert('Gagal menghapus produk.');
             }
         }
@@ -68,9 +69,13 @@ const Products: React.FC<ProductsProps> = ({ token, apiUrl, products, fetchProdu
               <tr key={product.id} className="bg-white border-b hover:bg-gray-100">
                 <td className="px-6 py-3">{product.name}</td>
                 <td className="px-6 py-3">{formatCurrency(product.price)}</td>
-                <td className="px-6 py-3 space-x-2">
-                  <button className="text-blue-600 hover:text-blue-800" onClick={() => handleEdit(product)}>Edit</button>
-                  <button className="text-red-600 hover:text-red-800" onClick={() => handleDelete(product.id)}>Hapus</button>
+                <td className="px-6 py-3 space-x-3">
+                  <button className="text-blue-600 hover:text-blue-800 inline-flex items-center" onClick={() => handleEdit(product)} aria-label="Edit">
+                    <FaEdit />
+                  </button>
+                  <button className="text-red-600 hover:text-red-800 inline-flex items-center" onClick={() => handleDelete(product.id)} aria-label="Hapus">
+                    <FaTrash />
+                  </button>
                 </td>
               </tr>
             ))}

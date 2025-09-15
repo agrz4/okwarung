@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import TransactionModal from './ModalTransaction'
 
 interface Product {
@@ -124,9 +125,13 @@ const Transactions: React.FC<TransactionsProps> = ({ token, apiUrl, products, tr
                 <td className="px-6 py-3">{transaction.quantity}</td>
                 <td className="px-6 py-3">{formatCurrency(transaction.price)}</td>
                 <td className="px-6 py-3">{formatCurrency(transaction.total)}</td>
-                <td className="px-6 py-3 space-x-2">
-                  <button className="text-blue-600 hover:text-blue-800" onClick={() => handleEdit(transaction)}>Edit</button>
-                  <button className="text-red-600 hover:text-red-800" onClick={() => handleDelete(transaction.id)}>Hapus</button>
+                <td className="px-6 py-3 space-x-3">
+                  <button className="text-blue-600 hover:text-blue-800 inline-flex items-center" onClick={() => handleEdit(transaction)} aria-label="Edit">
+                    <FaEdit />
+                  </button>
+                  <button className="text-red-600 hover:text-red-800 inline-flex items-center" onClick={() => handleDelete(transaction.id)} aria-label="Hapus">
+                    <FaTrash />
+                  </button>
                 </td>
               </tr>
             ))}
