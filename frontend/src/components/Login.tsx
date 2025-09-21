@@ -58,15 +58,24 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                             Pantau inventori, kelola pesanan, dan tingkatkan efisiensi bisnis Anda.
                         </p>
                     </div>
-
-                    <GallonLogo />
                 </div>
 
                 {/* Right side - Login form */}
                 <div className="w-full lg:w-1/2 flex items-center justify-center">
                     <div className="w-full max-w-md">
-                        {/* Mobile header */}
+                        {/* Mobile header with logo */}
                         <div className="lg:hidden text-center mb-8 text-white">
+                            {/* Mobile Logo */}
+                            <div className="flex items-center justify-center mb-4">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-2 bg-blue-500/20 rounded-xl backdrop-blur-sm">
+                                        <GiWaterGallon className="text-4xl text-blue-400 drop-shadow-lg" />
+                                    </div>
+                                    <div className="p-2 bg-green-500/20 rounded-xl backdrop-blur-sm">
+                                        <GiGasStove className="text-4xl text-green-400 drop-shadow-lg" />
+                                    </div>
+                                </div>
+                            </div>
                             <h1 className="text-3xl font-bold mb-2">AquaGas Store</h1>
                             <p className="text-lg opacity-90">Admin Login</p>
                         </div>
@@ -172,9 +181,6 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                                 >
                                     <span className="flex items-center justify-center space-x-2">
                                         <span>SIGN IN</span>
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                                        </svg>
                                     </span>
                                 </button>
 
