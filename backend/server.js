@@ -5,8 +5,9 @@ const db = require('./db');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const SECRET_KEY = 'your_secret_key';
-
+const SECRET_KEY = process.env.SECRET_KEY || 'your_secret_key';
+const dotenv = require('dotenv');
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
